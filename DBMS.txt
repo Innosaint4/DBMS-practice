@@ -1,0 +1,47 @@
+-- TURICENT ENTERPRISES
+CREATE TABLE staff_records(
+  id int primary key auto_increment,
+  fname varchar(50),
+  lname varchar(50),
+  birthdate date,
+  salary float
+  );
+  INSERT into staff_records(fname, lname, birthdate, salary)VALUES
+  ('ezra', 'opio', '2002-12-25', 5000),
+  ('forna', 'atuhaire', '2000-2-23', 7000),
+  ('innocent', 'turyasingura', '2002-12-10', 10000),
+  ('naome', 'atwiine', '2001-02-19', 6000),
+  ('allan', 'ssala', '2006-01-30', 2000),
+  ('abert', 'spenser', '2003-06-07', 1000),
+  ('ritah', 'mutoni', '2004-08-15', 4000),
+  ('juma', 'kutensa', '2007-04-26', 3000),
+  ('james', 'lohana', '2008-07-28',8000),
+  ('agnes', 'namara', '2002-11-11', 9000);
+  -- AND(both conditions must be true)
+  SELECT * FROM staff_records WHERE salary>5000 and birthdate>'2001-01-01';
+  -- OR(atleast one of the conditions must be true)
+  SELECT * FROM staff_records WHERE fname LIKE 'j%' or fname LIKE 'a%';
+  -- NOT(to negate a condition)
+  SELECT * FROM staff_records WHERE NOT birthdate>'2003-01-01';
+  -- IN(returns staff in any of these states)
+  SELECT * FROM staff_records WHERE fname IN ('allan', 'juma');
+  -- BETWEEN operator
+  SELECT * FROM staff_records where salary BETWEEN 4000 and 9000;
+  -- LIKE(returns staff whose lname starts with s)
+  SELECT * FROM staff_records where lname like 's%';
+  SELECT * FROM staff_records where lname like '%a';
+  -- REGEXP operator(returns staff whose first name starts with a)
+  SELECT * FROM staff_records WHERE lname regexp 'a$';
+  SELECT * FROM staff_records WHERE lname regexp '^a';
+  SELECT * FROM staff_records where lname regexp '^a|f$';
+  -- ORDER BY clause(sort customers by state ie ascending order), and then their first name(in descending order)
+  SELECT * FROM staff_records ORDER BY fname DESC;
+  SELECT * FROM staff_records ORDER BY fname ASC;
+    -- LIMIT clause(Return only specific customers)
+  SELECT * FROM staff_records LIMIT 4;
+      -- skip customers
+  SELECT * FROM staff_records LIMIT 4,5;
+  
+  
+    
+ 
